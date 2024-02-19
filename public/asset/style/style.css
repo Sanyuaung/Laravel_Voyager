@@ -1,17 +1,52 @@
 body {
-  background: #050b13 !important;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px !important;
+    background: #050b13 !important;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px !important;
 }
 html {
 }
 .rounded {
-  border-radius: 20px !important;
+    border-radius: 20px !important;
 }
 .bg-card {
-  background-color: #14171f;
+    background-color: #14171f;
 }
 
 .bx {
-  font-size: 20px;
+    font-size: 20px;
+}
+.carousel {
+    margin-top: 37px;
+}
+.carousel-caption {
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 16px 24px 48px 24px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.carousel-indicators {
+    list-style: none;
+    text-align: center;
+    margin: 2;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    text-indent: -9999px;
+    border: 1px;
+    border-radius: 50%;
+    opacity: 100%;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+.carousel-indicators .active {
+    background-color: #279ec5;
+}
+.carousel-item img {
+    /* max-width: 100%;
+    height: 100%; */
 }

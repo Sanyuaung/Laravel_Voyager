@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
+use App\Good;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,7 +16,11 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $goods = Good::with('goodImages', 'category', 'brand', 'color', 'size', 'reviews', 'reviews.user')->paginate(6);
+        $brands = Brand::all();
+        $categories = Category::all();
+        // return $goods;
+        return view('home', compact('goods', 'brands', 'categories'));
     }
 
     /**

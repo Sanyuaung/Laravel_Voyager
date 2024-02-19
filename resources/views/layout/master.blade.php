@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ setting('site.title') }} - {{ setting('site.description') }}</title>
+    <link rel="icon" type="image/png" href="{{ setting('site.logo') }}">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/argon-design-system-free@1.2.0/assets/css/argon-design-system.min.css">
     <!-- google fonts -->
@@ -32,7 +33,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Hidden brand</a>
+                    <a class="navbar-brand" href="{{ route('home') }}">Hidden brand</a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Login</a>
@@ -61,24 +62,86 @@
                     </form>
                 </div>
             </nav>
-            <div class="mt-5 col-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="height: 360px">
+                        <img class="d-block w-100"
+                            src="https://uatweb.chid.com.mm/images/new_ui/home/cmp-homepage-1404x630-main.jpg"
+                            alt="First slide">
+                        <div class="caption">
+                            <div class="carousel-caption">
+                                <div class="promotion-content">
+                                    <h1 class="float-left">
+                                        Get
+                                        comprehensive
+                                        coverage!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="carousel-item" style="height: 360px">
+                        <img class="d-block w-100"
+                            src="https://uatweb.chid.com.mm/images/new_ui/home/cmp-homepage-1404x630-main.jpg"
+                            alt="First slide">
+                        <div class="caption">
+                            <div class="carousel-caption">
+                                <div class="promotion-content">
+                                    <h1 class="float-left">
+                                        Get
+                                        comprehensive
+                                        coverage!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="height: 360px">
+                        <img class="d-block w-100"
+                            src="https://uatweb.chid.com.mm/images/new_ui/home/cmp-homepage-1404x630-main.jpg"
+                            alt="First slide">
+                        <div class="caption">
+                            <div class="carousel-caption">
+                                <div class="promotion-content">
+                                    <h1 class="float-left">
+                                        Get
+                                        comprehensive
+                                        coverage!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="mt-5 col-xl-8 col-lg-8 col-md-12 col-sm-12">
                 @yield('content')
             </div>
 
-            <div class="mt-4 col-4">
+            <div class="mt-4 col-4 d-none d-lg-block">
                 <div class="bg-card p-3 mt-4">
                     <h5 class="text-primary">Brands</h5>
-                    {{-- @foreach ($tag as $t)
-                        <a href="{{ url('/article?tag=' . $t->slug) }}"
-                            class="btn btn-sm btn-dark mt-1 text-white">{{ $t->name }} </a>
-                    @endforeach --}}
+                    @foreach ($brands as $b)
+                        {{-- {{ url('/article?tag=' . $t->slug) }} --}}
+                        <a href="#" class="btn btn-sm btn-dark mt-1 text-white">{{ $b->name }} </a>
+                    @endforeach
                 </div>
                 <div class="bg-card p-3 mt-4">
                     <h5 class="text-primary">Category</h5>
-                    {{-- @foreach ($programming as $p)
-                        <a href="{{ url('/article?programming=' . $p->slug) }}"
-                            class="btn btn-sm btn-dark mt-1 text-white">{{ $p->name }} </a>
-                    @endforeach --}}
+                    @foreach ($categories as $c)
+                        {{-- {{ url('/article?programming=' . $p->slug) }} --}}
+                        <a href="" class="btn btn-sm btn-dark mt-1 text-white">{{ $c->name }} </a>
+                    @endforeach
                 </div>
 
                 <div class="bg-card p-3 mt-4">

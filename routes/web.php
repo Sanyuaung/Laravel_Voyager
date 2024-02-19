@@ -18,7 +18,7 @@ use App\Http\Controllers\PageController;
 //     return view('welcome');
 // });
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'index'])->name('home');;
 
 
 Route::group(['prefix' => 'admin'], function () {
